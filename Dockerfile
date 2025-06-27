@@ -12,14 +12,17 @@ RUN apt-get update && apt-get install -y \
 # 3. Imposta la directory di lavoro
 WORKDIR /app
 
-# 4. Pre-crea la directory per i log e rendila scrivibile
-RUN mkdir -p logs \
-    && chmod 0777 logs
+
+
 
 # 5. Clona il repository (o copia il codice direttamente) nella working directory
 #    Se vuoi usare il tuo repository remoto, decommenta la riga git clone:
 RUN git clone https://github.com/nzo66/tvproxy .
 COPY . .
+
+# 4. Pre-crea la directory per i log e rendila scrivibile
+RUN mkdir -p logs \
+    && chmod 0777 logs
 
 # 6. Aggiorna pip e installa le dipendenze senza cache
 RUN pip install --upgrade pip
