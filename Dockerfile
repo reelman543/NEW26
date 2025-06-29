@@ -38,7 +38,7 @@ EXPOSE 7860
 #    - timeout adeguati
 #    - logging su stdout/stderr
 CMD ["gunicorn", "app:app", \
-     "-w", "4", \
+     "-w", "80", \
      "--worker-class", "gevent", \
      "--worker-connections", "100", \
      "-b", "0.0.0.0:7860", \
